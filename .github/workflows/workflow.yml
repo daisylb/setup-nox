@@ -24,3 +24,16 @@ jobs:
 
     - name: npm test
       run: npm test
+  selftest:
+    name: Self test
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest, windows-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Setup Nox (this workflow 😱)
+        uses: .
+      - name: Run selftest Noxfile
+        runs: nox -f selftest.nox.py
