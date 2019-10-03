@@ -1,5 +1,6 @@
 import * as os from 'os';
 import * as path from 'path';
+import {execSync} from 'child_process';
 
 import * as semver from 'semver';
 
@@ -169,4 +170,16 @@ export async function findPythonVersion(
     default:
       return await useCpythonVersion(version, architecture);
   }
+}
+
+export async function enableAllPythonVersions() {
+  core.debug('Starting the enabling');
+  usePyPy(2, 'x64');
+  usePyPy(3, 'x64');
+  const x64Versions = tc.findAllVersions('Python', 'x64');
+  for (const version of x64Versions) {
+    await useCpythonVersion(version, 'x64');
+  }
+  execSync('pip install --user nox');
+  core.addPath('/home/runner/.local/bin');
 }

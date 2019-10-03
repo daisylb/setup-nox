@@ -4,14 +4,8 @@ import * as path from 'path';
 
 async function run() {
   try {
-    let version = core.getInput('version');
-    if (!version) {
-      version = core.getInput('python-version');
-    }
-    if (version) {
-      const arch: string = core.getInput('architecture', {required: true});
-      await finder.findPythonVersion(version, arch);
-    }
+    await finder.enableAllPythonVersions();
+
     const matchersPath = path.join(__dirname, '..', '.github');
     console.log(`##[add-matcher]${path.join(matchersPath, 'python.json')}`);
   } catch (err) {

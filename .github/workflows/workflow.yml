@@ -34,6 +34,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
       - name: Setup Nox (this workflow 😱)
-        uses: .
+        uses: ./
       - name: Run selftest Noxfile
-        runs: nox -f selftest.nox.py
+        run: |
+          echo $PATH
+          nox -f selftest.nox.py
