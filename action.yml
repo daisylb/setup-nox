@@ -1,5 +1,5 @@
 name: 'Setup Nox'
-description: 'Set up Nox to use all available Python versions'
+description: 'Use the Nox testing automation tool for Python in GitHub Actions.'
 author: 'Leigh Brenecki'
 icon: 'command'
 color: 'green'
