@@ -3,4 +3,4 @@ description: 'Set up Nox to use all available Python versions'
 author: 'Leigh Brenecki'
 runs:
   using: 'node12'
-  main: 'lib/setup-python.js'
+  main: 'dist/index.js'
