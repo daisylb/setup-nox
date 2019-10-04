@@ -1,9 +1,16 @@
 import nox
+import sys
 
 nox.options.error_on_missing_interpreters = True
 nox.options.error_on_external_run = True
 
-@nox.session(python=['2.7', '3.5', '3.6', '3.7', 'pypy', 'pypy3'])
+pythons = {
+    'linux': ['2.7', '3.5', '3.6', '3.7', 'pypy', 'pypy3'],
+    'windows': ['3.5', '3.6', '3.7'],
+    'darwin': ['2.7', '3.5', '3.6', '3.7', 'pypy', 'pypy3'],
+}[sys.platform]
+
+@nox.session(python=pythons)
 def tests(session):
     python = session.python
     if python == 'pypy':
