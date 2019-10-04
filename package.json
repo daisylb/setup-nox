@@ -1,8 +1,8 @@
 {
   "name": "setup-nox",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
-  "description": "Setup python action",
+  "description": "Action to set up Nox",
   "main": "dist/index.js",
   "scripts": {
     "build": "ncc build src/setup-python.ts",
@@ -19,7 +19,7 @@
     "node",
     "setup"
   ],
-  "author": "GitHub",
+  "author": "Leigh Brenecki <leigh@brenecki.id.au>",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.0.0",

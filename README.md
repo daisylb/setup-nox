@@ -1,5 +1,7 @@
 # setup-nox
 
+Use the Nox testing automation tool for Python in GitHub Actions.
+
 <p align="left">
   <a href="https://github.com/excitedleigh/setup-nox"><img alt="GitHub Actions status" src="https://github.com/excitedleigh/setup-nox/workflows/Main%20workflow/badge.svg"></a>
 </p>
@@ -9,13 +11,23 @@ This action sets up a Python environment with Nox by:
 - Activating every version of Python that GitHub Actions supports.
 - Installing Nox.
 
+After you use it, you'll be able to use Nox with [every Python version available on GitHub Actions][actions-installed]. (The exception to this is on Windows, where at present only CPython 3.x are guaranteed to work). Nox itself will be installed in the newest available Python version.
+
+This action runs in the GitHub Actions environment itself and not in Docker, which means it works on Linux, Windows and macOS, but only with the available Python versions. If you need Python versions outside that, but you only need Linux, you can also try the [thekevjames/nox Docker images][nox-docker].
+
+It is forked from the official [actions/setup-python][original-action] action by GitHub.
+
+[actions-installed]: https://help.github.com/en/articles/software-in-virtual-environments-for-github-actions
+[nox-docker]: https://hub.docker.com/r/thekevjames/nox
+[original-action]: https://github.com/actions/setup-python
+
 # Usage
 
 Basic:
 ```yaml
 steps:
-- uses: actions/checkout@master
-- uses: excitedleigh/setup-nox@master
+- uses: actions/checkout@1.0.0
+- uses: excitedleigh/setup-nox@0.1.0
 - run: nox
 ```
 
