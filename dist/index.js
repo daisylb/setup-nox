@@ -4476,7 +4476,9 @@ function enableAllPythonVersions() {
             yield useCpythonVersion(version, 'x64');
         }
         child_process_1.execSync('pip install --user nox');
-        core.addPath('/home/runner/.local/bin');
+        if (!IS_WINDOWS) {
+            core.addPath(`${os.homedir()}/.local/bin`);
+        }
     });
 }
 exports.enableAllPythonVersions = enableAllPythonVersions;

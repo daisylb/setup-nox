@@ -181,5 +181,7 @@ export async function enableAllPythonVersions() {
     await useCpythonVersion(version, 'x64');
   }
   execSync('pip install --user nox');
-  core.addPath('/home/runner/.local/bin');
+  if (!IS_WINDOWS) {
+    core.addPath(`${os.homedir()}/.local/bin`);
+  }
 }
