@@ -1,6 +1,8 @@
 name: 'Setup Nox'
 description: 'Set up Nox to use all available Python versions'
 author: 'Leigh Brenecki'
+icon: 'command'
+color: 'green'
 runs:
   using: 'node12'
   main: 'dist/index.js'
