@@ -1,8 +1,9 @@
 name: 'Setup Nox'
 description: 'Use the Nox testing automation tool for Python in GitHub Actions.'
 author: 'Leigh Brenecki'
-icon: 'command'
-color: 'green'
+branding:
+  icon: 'copy'
+  color: 'green'
 runs:
   using: 'node12'
   main: 'dist/index.js'
