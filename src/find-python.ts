@@ -174,8 +174,10 @@ export async function findPythonVersion(
 
 export async function enableAllPythonVersions() {
   core.debug('Starting the enabling');
-  usePyPy(2, 'x64');
+  // Note: pypy3 has both 'pypy3' and 'pypy', but pypy2 just has 'pypy', so 2
+  // has to come last to make it accessible
   usePyPy(3, 'x64');
+  usePyPy(2, 'x64');
   const x64Versions = tc.findAllVersions('Python', 'x64');
   for (const version of x64Versions) {
     await useCpythonVersion(version, 'x64');

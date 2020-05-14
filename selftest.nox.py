@@ -5,9 +5,9 @@ nox.options.error_on_missing_interpreters = True
 nox.options.error_on_external_run = True
 
 pythons = {
-    'linux': ['2.7', '3.5', '3.6', '3.7', 'pypy2', 'pypy3'],
+    'linux': ['2.7', '3.5', '3.6', '3.7', 'pypy', 'pypy3'],
     'win32': ['3.5', '3.6', '3.7'],
-    'darwin': ['2.7', '3.5', '3.6', '3.7', 'pypy2', 'pypy3'],
+    'darwin': ['2.7', '3.5', '3.6', '3.7', 'pypy', 'pypy3'],
 }[sys.platform]
 
 @nox.session(python=pythons)
