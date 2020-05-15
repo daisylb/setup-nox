@@ -36,6 +36,4 @@ jobs:
       - name: Setup Nox (this workflow 😱)
         uses: ./
       - name: Run selftest Noxfile
-        run: |
-          echo $PATH
-          nox -f selftest.nox.py
+        run: nox -f selftest.nox.py
