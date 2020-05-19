@@ -34,7 +34,7 @@
     "@zeit/ncc": "^0.22.1",
     "husky": "^4.2.5",
     "jest": "^25.5.4",
-    "jest-circus": "^25.1.0",
+    "jest-circus": "^26.0.1",
     "prettier": "^1.19.1",
     "ts-jest": "^25.5.1",
     "typescript": "^3.9.2"
