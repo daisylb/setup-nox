@@ -22,7 +22,7 @@
   "author": "Leigh Brenecki <leigh@brenecki.id.au>",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.4",
+    "@actions/core": "^1.2.6",
     "@actions/tool-cache": "^1.6.0",
     "semver": "^7.3.2"
   },
