@@ -24,7 +24,7 @@ for (const version of allPyPyVersions) {
   const root = findVersion('PyPy', version);
   console.log(root);
   addPath(`${root}/bin`);
-  execSync(`ls ${root}/bin`)
+  console.log(execSync(`ls ${root}/bin`).stdout);
 }
 
 const NOX_PYTHON_VERSION = allCPythonVersions[allCPythonVersions.length - 1];
