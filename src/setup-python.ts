@@ -1,16 +1,6 @@
-import * as core from '@actions/core';
-import * as finder from './find-python';
-import * as path from 'path';
+import {findAllVersions} from '@actions/tool-cache'
 
-async function run() {
-  try {
-    await finder.enableAllPythonVersions();
+const allCPythonVersions = findAllVersions('Python')
+const allPyPyVersions = findAllVersions('PyPy')
 
-    const matchersPath = path.join(__dirname, '..', '.github');
-    console.log(`##[add-matcher]${path.join(matchersPath, 'python.json')}`);
-  } catch (err) {
-    core.setFailed(err.message);
-  }
-}
-
-run();
+console.log(allCPythonVersions, allPyPyVersions)
