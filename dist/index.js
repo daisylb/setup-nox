@@ -1469,13 +1469,14 @@ const NOX_PYTHON_VERSION = allCPythonVersions[allCPythonVersions.length - 1];
 const [_, NOX_MAJOR, NOX_MINOR] = /^(\d+)\.(\d+)/.exec(NOX_PYTHON_VERSION);
 console.log(process.platform);
 const localBinPath = {
-    darwin: "/Users/runner/.local/bin",
-    linux: "/home/runner/.local/bin",
-    win32: `C:\Users\runneradmin\AppData\Roaming\Python\Python${NOX_MAJOR}${NOX_MINOR}\Scripts`,
+    darwin: '/Users/runner/.local/bin',
+    linux: '/home/runner/.local/bin',
+    win32: `C:\Users\runneradmin\AppData\Roaming\Python\Python${NOX_MAJOR}${NOX_MINOR}\Scripts`
 }[process.platform];
-const pipPath = tool_cache_1.find('Python', NOX_PYTHON_VERSION) + (IS_WINDOWS ? '\Scripts\pip' : '/bin/pip');
+const pipPath = tool_cache_1.find('Python', NOX_PYTHON_VERSION) +
+    (IS_WINDOWS ? 'Scriptspip' : '/bin/pip');
 core_1.addPath(localBinPath);
-child_process_1.execSync(pipPath);
+child_process_1.execSync(`${pipPath} install --user nox`);
 
 
 /***/ }),
