@@ -1449,7 +1449,7 @@ const IS_WINDOWS = process.platform === 'win32';
 const allCPythonVersions = tool_cache_1.findAllVersions('Python');
 const allPyPyVersions = tool_cache_1.findAllVersions('PyPy');
 console.log(allCPythonVersions, allPyPyVersions);
-for (const version in allCPythonVersions) {
+for (const version of allCPythonVersions) {
     console.log(version);
     const root = tool_cache_1.find('Python', version);
     console.log(root);
@@ -1460,7 +1460,7 @@ for (const version in allCPythonVersions) {
         core_1.addPath(`${root}/bin`);
     }
 }
-for (const version in allPyPyVersions) {
+for (const version of allPyPyVersions) {
     const root = tool_cache_1.find('PyPy', version);
     console.log(root);
     core_1.addPath(`${root}/bin`);

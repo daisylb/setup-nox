@@ -9,8 +9,8 @@ const allPyPyVersions = findAllVersions('PyPy');
 
 console.log(allCPythonVersions, allPyPyVersions);
 
-for (const version in allCPythonVersions) {
-  console.log(version)
+for (const version of allCPythonVersions) {
+  console.log(version);
   const root = findVersion('Python', version);
   console.log(root);
   if (IS_WINDOWS) {
@@ -20,7 +20,7 @@ for (const version in allCPythonVersions) {
   }
 }
 
-for (const version in allPyPyVersions) {
+for (const version of allPyPyVersions) {
   const root = findVersion('PyPy', version);
   console.log(root);
   addPath(`${root}/bin`);
