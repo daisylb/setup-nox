@@ -38,7 +38,7 @@ const localBinPath = {
 }[process.platform as 'darwin' | 'linux' | 'win32'];
 const pipPath =
   findVersion('Python', NOX_PYTHON_VERSION) +
-  (IS_WINDOWS ? 'Scriptspip' : '/bin/pip');
+  (IS_WINDOWS ? '\\Scripts\\pip' : '/bin/pip');
 
 addPath(localBinPath);
 execSync(`${pipPath} install --user nox`);
