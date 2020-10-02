@@ -1445,6 +1445,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const tool_cache_1 = __webpack_require__(533);
 const core_1 = __webpack_require__(470);
 const child_process_1 = __webpack_require__(129);
+const fs_1 = __webpack_require__(747);
 const IS_WINDOWS = process.platform === 'win32';
 const allCPythonVersions = tool_cache_1.findAllVersions('Python');
 const allPyPyVersions = tool_cache_1.findAllVersions('PyPy');
@@ -1453,7 +1454,9 @@ for (const version of allPyPyVersions) {
     const root = tool_cache_1.find('PyPy', version);
     console.log(root);
     core_1.addPath(`${root}/bin`);
-    console.log(child_process_1.execSync(`ls ${root}/bin`).toString());
+    if (/2\./.exec(version)) {
+        fs_1.symlinkSync(`${root}/bin/pypy2`, `${root}/bin/pypy`);
+    }
 }
 for (const version of allCPythonVersions) {
     console.log(version);

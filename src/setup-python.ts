@@ -1,6 +1,7 @@
 import {findAllVersions, find as findVersion} from '@actions/tool-cache';
 import {addPath} from '@actions/core';
 import {execSync} from 'child_process';
+import {symlinkSync} from 'fs'
 
 const IS_WINDOWS = process.platform === 'win32';
 
@@ -13,7 +14,9 @@ for (const version of allPyPyVersions) {
   const root = findVersion('PyPy', version);
   console.log(root);
   addPath(`${root}/bin`);
-  console.log(execSync(`ls ${root}/bin`).toString());
+  if (/2\./.exec(version)){
+    symlinkSync(`${root}/bin/pypy2`, `${root}/bin/pypy`)
+  }
 }
 
 for (const version of allCPythonVersions) {
