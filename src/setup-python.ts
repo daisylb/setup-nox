@@ -33,18 +33,11 @@ for (const version of allCPythonVersions) {
 }
 
 const NOX_PYTHON_VERSION = allCPythonVersions[allCPythonVersions.length - 1]
-
-const [_, NOX_MAJOR, NOX_MINOR] = /^(\d+)\.(\d+)/.exec(NOX_PYTHON_VERSION)!
-
-console.log(process.platform)
-const localBinPath = {
-  darwin: "/Users/runner/.local/bin",
-  linux: "/home/runner/.local/bin",
-  win32: `C:\Users\runneradmin\AppData\Roaming\Python\Python${NOX_MAJOR}${NOX_MINOR}\Scripts`,
-}[process.platform as "darwin" | "linux" | "win32"]
-const pipPath =
+const NOX_PYTHON_PATH =
   findVersion("Python", NOX_PYTHON_VERSION) +
-  (IS_WINDOWS ? "\\Scripts\\pip" : "/bin/pip")
+  (IS_WINDOWS ? "\\Scripts\\python" : "/bin/python")
+  
+const NOX_BIN_PATH = execSync(`${NOX_PYTHON_PATH} -c "import os, sysconfig; print(sysconfig.get_path('scripts', f'{os.name}_user'))"`).toString().trim()
 
-addPath(localBinPath)
-execSync(`${pipPath} install --user nox`)
+addPath(NOX_BIN_PATH)
+execSync(`${NOX_PYTHON_PATH} -m pip install --user nox`)
