@@ -10,6 +10,7 @@ const allPyPyVersions = findAllVersions('PyPy');
 console.log(allCPythonVersions, allPyPyVersions);
 
 for (const version in allCPythonVersions) {
+  console.log(version)
   const root = findVersion('Python', version);
   console.log(root);
   if (IS_WINDOWS) {

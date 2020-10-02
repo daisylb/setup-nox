@@ -1450,6 +1450,7 @@ const allCPythonVersions = tool_cache_1.findAllVersions('Python');
 const allPyPyVersions = tool_cache_1.findAllVersions('PyPy');
 console.log(allCPythonVersions, allPyPyVersions);
 for (const version in allCPythonVersions) {
+    console.log(version);
     const root = tool_cache_1.find('Python', version);
     console.log(root);
     if (IS_WINDOWS) {
