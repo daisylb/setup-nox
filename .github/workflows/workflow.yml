@@ -2,34 +2,31 @@ name: Main workflow
 on: [push]
 jobs:
   run:
-    name: Run
-    runs-on: ${{ matrix.operating-system }}
-    strategy:
-      matrix:
-        operating-system: [ubuntu-latest, windows-latest]
+    name: Code linting
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@master
 
-    - name: Set Node.js 10.x
-      uses: actions/setup-node@master
-      with:
-        version: 10.x
+      - name: Set Node.js 14.x
+        uses: actions/setup-node@master
+        with:
+          version: 14.x
 
-    - name: npm install
-      run: npm install
+      - name: npm install
+        run: npm install
 
-    - name: Lint
-      run: npm run format-check
-
-    - name: npm test
-      run: npm test
+      - name: Lint
+        run: npm run format-check
   selftest:
     name: Self test
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        operating-system: [ubuntu-latest, windows-latest, macOS-latest]
+        operating-system:
+          - ubuntu-latest
+          - windows-latest
+          - macOS-latest
     steps:
       - name: Checkout
         uses: actions/checkout@master
