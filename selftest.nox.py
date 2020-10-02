@@ -5,7 +5,7 @@ import os
 nox.options.error_on_missing_interpreters = True
 nox.options.error_on_external_run = True
 
-pythons = ['2.7', '3.5', '3.6', '3.7', 'pypy2', 'pypy3']
+pythons = ['2.7', '3.5', '3.6', '3.7', 'pypy', 'pypy3']
 
 @nox.session(python=pythons)
 def tests(session):
