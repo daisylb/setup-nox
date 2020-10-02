@@ -10,7 +10,9 @@ pythons = ['2.7', '3.5', '3.6', '3.7', '3.8', 'pypy2', 'pypy3'] if sys.platform 
 @nox.session(python=pythons)
 def tests(session):
     print(os.environ['PATH'])
-    python = session.python.removeprefix('pypy')
+    python = session.python
+    if python.startswith('pypy'):
+        python = python[4:]
     session.run(
         'python',
         '-c', 
