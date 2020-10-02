@@ -1443,17 +1443,28 @@ exports.debug = debug; // for test
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const tool_cache_1 = __webpack_require__(533);
+const core_1 = __webpack_require__(470);
+const child_process_1 = __webpack_require__(129);
+const IS_WINDOWS = process.platform === 'win32';
 const allCPythonVersions = tool_cache_1.findAllVersions('Python');
 const allPyPyVersions = tool_cache_1.findAllVersions('PyPy');
 console.log(allCPythonVersions, allPyPyVersions);
 for (const version in allCPythonVersions) {
-    const versionInfo = tool_cache_1.find('Python', version);
-    console.log(versionInfo);
+    const root = tool_cache_1.find('Python', version);
+    console.log(root);
+    if (IS_WINDOWS) {
+        core_1.addPath(`${root}\Scripts`);
+    }
+    else {
+        core_1.addPath(`${root}/bin`);
+    }
 }
 for (const version in allPyPyVersions) {
-    const versionInfo = tool_cache_1.find('PyPy', version);
-    console.log(versionInfo);
+    const root = tool_cache_1.find('PyPy', version);
+    console.log(root);
+    core_1.addPath(`${root}/bin`);
 }
+child_process_1.execSync('pip install --user nox');
 
 
 /***/ }),
