@@ -1446,21 +1446,22 @@ const tool_cache_1 = __webpack_require__(533);
 const core_1 = __webpack_require__(470);
 const child_process_1 = __webpack_require__(129);
 const fs_1 = __webpack_require__(747);
-const IS_WINDOWS = process.platform === 'win32';
-const allCPythonVersions = tool_cache_1.findAllVersions('Python');
-const allPyPyVersions = tool_cache_1.findAllVersions('PyPy');
+//function installPythonVersion(type: "Python" | "PyPy")
+const IS_WINDOWS = process.platform === "win32";
+const allCPythonVersions = tool_cache_1.findAllVersions("Python");
+const allPyPyVersions = tool_cache_1.findAllVersions("PyPy");
 console.log(allCPythonVersions, allPyPyVersions);
 for (const version of allPyPyVersions) {
-    const root = tool_cache_1.find('PyPy', version);
+    const root = tool_cache_1.find("PyPy", version);
     console.log(root);
     core_1.addPath(`${root}/bin`);
     if (/2\./.exec(version)) {
-        fs_1.symlinkSync(`${root}/bin/pypy2`, `${root}/bin/pypy`);
+        fs_1.symlinkSync(`${root}/bin/pypy`, `${root}/bin/pypy2`);
     }
 }
 for (const version of allCPythonVersions) {
     console.log(version);
-    const root = tool_cache_1.find('Python', version);
+    const root = tool_cache_1.find("Python", version);
     console.log(root);
     if (IS_WINDOWS) {
         core_1.addPath(`${root}\Scripts`);
@@ -1473,12 +1474,12 @@ const NOX_PYTHON_VERSION = allCPythonVersions[allCPythonVersions.length - 1];
 const [_, NOX_MAJOR, NOX_MINOR] = /^(\d+)\.(\d+)/.exec(NOX_PYTHON_VERSION);
 console.log(process.platform);
 const localBinPath = {
-    darwin: '/Users/runner/.local/bin',
-    linux: '/home/runner/.local/bin',
-    win32: `C:\Users\runneradmin\AppData\Roaming\Python\Python${NOX_MAJOR}${NOX_MINOR}\Scripts`
+    darwin: "/Users/runner/.local/bin",
+    linux: "/home/runner/.local/bin",
+    win32: `C:\Users\runneradmin\AppData\Roaming\Python\Python${NOX_MAJOR}${NOX_MINOR}\Scripts`,
 }[process.platform];
-const pipPath = tool_cache_1.find('Python', NOX_PYTHON_VERSION) +
-    (IS_WINDOWS ? '\\Scripts\\pip' : '/bin/pip');
+const pipPath = tool_cache_1.find("Python", NOX_PYTHON_VERSION) +
+    (IS_WINDOWS ? "\\Scripts\\pip" : "/bin/pip");
 core_1.addPath(localBinPath);
 child_process_1.execSync(`${pipPath} install --user nox`);
 

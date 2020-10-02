@@ -3,7 +3,7 @@ import { addPath } from "@actions/core"
 import { execSync } from "child_process"
 import { symlinkSync } from "fs"
 
-function installPythonVersion(type: "Python" | "PyPy")
+//function installPythonVersion(type: "Python" | "PyPy")
 
 const IS_WINDOWS = process.platform === "win32"
 
