@@ -1446,6 +1446,14 @@ const tool_cache_1 = __webpack_require__(533);
 const allCPythonVersions = tool_cache_1.findAllVersions('Python');
 const allPyPyVersions = tool_cache_1.findAllVersions('PyPy');
 console.log(allCPythonVersions, allPyPyVersions);
+for (const version in allCPythonVersions) {
+    const versionInfo = tool_cache_1.find('Python', version);
+    console.log(versionInfo);
+}
+for (const version in allPyPyVersions) {
+    const versionInfo = tool_cache_1.find('PyPy', version);
+    console.log(versionInfo);
+}
 
 
 /***/ }),
