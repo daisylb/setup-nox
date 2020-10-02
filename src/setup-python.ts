@@ -25,5 +25,5 @@ for (const version in allPyPyVersions) {
   addPath(`${root}/bin`);
 }
 
-addPath('/home/runner/.local/bin')
+addPath('/home/runner/.local/bin');
 execSync('pip install --user nox');

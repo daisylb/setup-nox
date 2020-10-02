@@ -1,5 +1,6 @@
 import nox
 import sys
+import os
 
 nox.options.error_on_missing_interpreters = True
 nox.options.error_on_external_run = True
@@ -12,6 +13,7 @@ pythons = {
 
 @nox.session(python=pythons)
 def tests(session):
+    print(os.environ['PATH'])
     python = session.python
     if python == 'pypy':
         python = '2'
