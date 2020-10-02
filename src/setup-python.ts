@@ -9,6 +9,13 @@ const allPyPyVersions = findAllVersions('PyPy');
 
 console.log(allCPythonVersions, allPyPyVersions);
 
+for (const version of allPyPyVersions) {
+  const root = findVersion('PyPy', version);
+  console.log(root);
+  addPath(`${root}/bin`);
+  console.log(execSync(`ls ${root}/bin`).toString());
+}
+
 for (const version of allCPythonVersions) {
   console.log(version);
   const root = findVersion('Python', version);
@@ -18,13 +25,6 @@ for (const version of allCPythonVersions) {
   } else {
     addPath(`${root}/bin`);
   }
-}
-
-for (const version of allPyPyVersions) {
-  const root = findVersion('PyPy', version);
-  console.log(root);
-  addPath(`${root}/bin`);
-  console.log(execSync(`ls ${root}/bin`).toString());
 }
 
 const NOX_PYTHON_VERSION = allCPythonVersions[allCPythonVersions.length - 1];
