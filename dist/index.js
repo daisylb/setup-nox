@@ -1464,6 +1464,7 @@ for (const version in allPyPyVersions) {
     console.log(root);
     core_1.addPath(`${root}/bin`);
 }
+core_1.addPath('/home/runner/.local/bin');
 child_process_1.execSync('pip install --user nox');
 
 
