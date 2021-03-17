@@ -1466,6 +1466,7 @@ for (const version of allCPythonVersions) {
     console.log("root dir contents", fs_1.readdirSync(root));
     if (IS_WINDOWS) {
         console.log("scripts dir contents", fs_1.readdirSync(`${root}\\Scripts`));
+        core_1.addPath(root);
         core_1.addPath(`${root}\\Scripts`);
     }
     else {
@@ -1474,7 +1475,7 @@ for (const version of allCPythonVersions) {
 }
 const NOX_PYTHON_VERSION = allCPythonVersions[allCPythonVersions.length - 1];
 const NOX_PYTHON_PATH = tool_cache_1.find("Python", NOX_PYTHON_VERSION) +
-    (IS_WINDOWS ? "\\Scripts\\python" : "/bin/python");
+    (IS_WINDOWS ? "\\python.exe" : "/bin/python");
 const NOX_BIN_PATH = child_process_1.execSync(`${NOX_PYTHON_PATH} -c "import os, sysconfig; print(sysconfig.get_path('scripts', f'{os.name}_user'))"`)
     .toString()
     .trim();
