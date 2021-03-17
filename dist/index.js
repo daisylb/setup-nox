@@ -1465,6 +1465,7 @@ for (const version of allCPythonVersions) {
     console.log(root);
     console.log("root dir contents", fs_1.readdirSync(root));
     if (IS_WINDOWS) {
+        console.log("scripts dir contents", fs_1.readdirSync(`${root}\\Scripts`));
         core_1.addPath(`${root}\\Scripts`);
     }
     else {

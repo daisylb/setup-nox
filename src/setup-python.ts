@@ -1,7 +1,7 @@
 import { findAllVersions, find as findVersion } from "@actions/tool-cache"
 import { addPath } from "@actions/core"
 import { execSync } from "child_process"
-import { symlinkSync, readdirSync } from "fs"
+import { symlinkSync, readdirSync, readdir } from "fs"
 
 //function installPythonVersion(type: "Python" | "PyPy")
 
@@ -27,6 +27,7 @@ for (const version of allCPythonVersions) {
   console.log(root)
   console.log("root dir contents", readdirSync(root))
   if (IS_WINDOWS) {
+    console.log("scripts dir contents", readdirSync(`${root}\\Scripts`))
     addPath(`${root}\\Scripts`)
   } else {
     addPath(`${root}/bin`)
