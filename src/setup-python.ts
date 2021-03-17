@@ -25,10 +25,8 @@ for (const version of allCPythonVersions) {
   console.log(version)
   const root = findVersion("Python", version)
   console.log(root)
+  console.log("root dir contents", readdirSync(root))
   if (IS_WINDOWS) {
-    console.log(readdirSync(root))
-    console.log(readdirSync(`${root}\\bin`))
-    console.log(readdirSync(`${root}\\Scripts`))
     addPath(`${root}\\Scripts`)
   } else {
     addPath(`${root}/bin`)
