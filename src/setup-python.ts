@@ -36,8 +36,12 @@ const NOX_PYTHON_VERSION = allCPythonVersions[allCPythonVersions.length - 1]
 const NOX_PYTHON_PATH =
   findVersion("Python", NOX_PYTHON_VERSION) +
   (IS_WINDOWS ? "\\Scripts\\python" : "/bin/python")
-  
-const NOX_BIN_PATH = execSync(`${NOX_PYTHON_PATH} -c "import os, sysconfig; print(sysconfig.get_path('scripts', f'{os.name}_user'))"`).toString().trim()
+
+const NOX_BIN_PATH = execSync(
+  `${NOX_PYTHON_PATH} -c "import os, sysconfig; print(sysconfig.get_path('scripts', f'{os.name}_user'))"`,
+)
+  .toString()
+  .trim()
 
 addPath(NOX_BIN_PATH)
 execSync(`${NOX_PYTHON_PATH} -m pip install --user nox`)
