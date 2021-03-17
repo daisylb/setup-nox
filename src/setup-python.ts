@@ -26,7 +26,7 @@ for (const version of allCPythonVersions) {
   const root = findVersion("Python", version)
   console.log(root)
   if (IS_WINDOWS) {
-    addPath(`${root}\Scripts`)
+    addPath(`${root}\\Scripts`)
   } else {
     addPath(`${root}/bin`)
   }

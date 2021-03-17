@@ -25,7 +25,7 @@ jobs:
       matrix:
         operating-system:
           - ubuntu-latest
-          # - windows-latest
+          - windows-latest
           - macOS-latest
     steps:
       - name: Checkout
