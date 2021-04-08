@@ -30,7 +30,7 @@
     "@zeit/ncc": "^0.22.3",
     "husky": "^5.2.0",
     "prettier": "^2.2.1",
-    "typescript": "^4.2.3"
+    "typescript": "^4.2.4"
   },
   "husky": {
     "skipCI": true,
