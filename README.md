@@ -29,7 +29,7 @@ Basic:
 steps:
   - uses: actions/checkout@v2
   - uses: excitedleigh/setup-nox@1.0.0
-  - run: nox
+  - run: nox --force-color
 ```
 
 # License
