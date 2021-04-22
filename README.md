@@ -15,8 +15,6 @@ After you use it, you'll be able to use Nox with [every Python version available
 
 This action runs in the GitHub Actions environment itself and not in Docker, which means it works on Linux, Windows and macOS, but only with the available Python versions. If you need Python versions outside that, but you only need Linux, you can also try the [thekevjames/nox Docker images][nox-docker].
 
-It is forked from the official [actions/setup-python][original-action] action by GitHub.
-
 [actions-installed]: https://help.github.com/en/articles/software-in-virtual-environments-for-github-actions
 [nox-docker]: https://hub.docker.com/r/thekevjames/nox
 [original-action]: https://github.com/actions/setup-python
@@ -28,7 +26,7 @@ Basic:
 ```yaml
 steps:
   - uses: actions/checkout@v2
-  - uses: excitedleigh/setup-nox@1.0.0
+  - uses: excitedleigh/setup-nox@v2.0.0
   - run: nox
 ```
 
