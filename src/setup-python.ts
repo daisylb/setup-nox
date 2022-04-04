@@ -16,9 +16,6 @@ for (const version of allPyPyVersions) {
   const root = findVersion("PyPy", version)
   console.log(root)
   addPath(`${root}/bin`)
-  if (/2\./.exec(version)) {
-    symlinkSync(`${root}/bin/pypy`, `${root}/bin/pypy2`)
-  }
 }
 
 for (const version of allCPythonVersions) {
