@@ -1517,7 +1517,6 @@ for (const version of allPyPyVersions) {
 for (const version of allCPythonVersions) {
     const root = (0, tool_cache_1.find)("Python", version);
     if (IS_WINDOWS) {
-        console.log("scripts dir contents", (0, fs_1.readdirSync)(`${root}\\Scripts`));
         (0, core_1.addPath)(root);
         (0, core_1.addPath)(`${root}\\Scripts`);
     }
