@@ -26,7 +26,7 @@ Basic:
 ```yaml
 steps:
   - uses: actions/checkout@v2
-  - uses: excitedleigh/setup-nox@v2.0.0
+  - uses: excitedleigh/setup-nox@v2.1.0
   - run: nox
 ```
 
