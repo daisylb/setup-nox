@@ -11,7 +11,7 @@ This action sets up a Python environment with Nox by:
 - Activating every version of Python that GitHub Actions supports.
 - Installing Nox.
 
-After you use it, you'll be able to use Nox with [every Python version available on GitHub Actions][actions-installed]. Nox itself will be installed in the newest available Python version.
+After you use it, you'll be able to use Nox with [every Python version available on GitHub Actions][actions-installed]. Nox itself will be installed in the newest available (non-prerelease) Python version.
 
 This action runs in the GitHub Actions environment itself and not in Docker, which means it works on Linux, Windows and macOS, but only with the available Python versions. If you need Python versions outside that, but you only need Linux, you can also try the [thekevjames/nox Docker images][nox-docker].
 

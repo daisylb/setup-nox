@@ -2,6 +2,7 @@ import { findAllVersions, find as findVersion } from "@actions/tool-cache"
 import { addPath } from "@actions/core"
 import { execSync } from "child_process"
 import { symlinkSync, readdirSync, readdir, existsSync } from "fs"
+import { maxSatisfying, valid } from "semver"
 
 //function installPythonVersion(type: "Python" | "PyPy")
 
@@ -40,7 +41,9 @@ for (const version of allCPythonVersions) {
   }
 }
 
-const NOX_PYTHON_VERSION = allCPythonVersions[allCPythonVersions.length - 1]
+const NOX_PYTHON_VERSION =
+    maxSatisfying(allCPythonVersions.filter(valid), `*`) ||
+    allCPythonVersions[allCPythonVersions.length - 1]
 console.log("Nox itself will be installed using", NOX_PYTHON_VERSION)
 const NOX_PYTHON_PATH =
   findVersion("Python", NOX_PYTHON_VERSION) +
