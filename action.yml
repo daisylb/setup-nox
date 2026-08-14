@@ -5,5 +5,5 @@ branding:
   icon: "check-square" # when changing, use https://actions-cool.github.io/github-action-branding/
   color: "green"
 runs:
-  using: "node20"
+  using: "node24"
   main: "dist/index.js"
