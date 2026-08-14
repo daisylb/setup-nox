@@ -23,8 +23,8 @@ Basic:
 
 ```yaml
 steps:
-  - uses: actions/checkout@v4
-  - uses: fjwillemsen/setup-nox2@v3.0.0
+  - uses: actions/checkout@v7
+  - uses: fjwillemsen/setup-nox2@v4
   - run: nox
 ```
 
