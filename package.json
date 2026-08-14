@@ -1,6 +1,6 @@
 {
     "name": "setup-nox",
-    "version": "3.0.0",
+    "version": "4.0.0",
     "private": true,
     "description": "Action to set up Nox test automation for Python",
     "main": "dist/index.js",
@@ -32,10 +32,10 @@
         "@actions/tool-cache": "2.0.1"
     },
     "devDependencies": {
-        "@types/node": "20.6.0",
+        "@types/node": "^24.1.0",
         "@vercel/ncc": "^0.38.0",
         "husky": "^8.0.3",
-        "prettier": "3.0.3",
-        "typescript": "5.2.2"
+        "prettier": "^3.0.3",
+        "typescript": "^5.2.2"
     }
 }
