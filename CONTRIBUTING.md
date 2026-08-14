@@ -23,7 +23,7 @@ Some steps to reproduce a bug reliably would also make a huge difference.
 ## Contributing essentials
 
 The essential steps to contribute via a pull request are:
-- Make sure you are on Node version 20 and the latest compatible NPM version
+- Make sure you are on Node version 24 and the latest compatible NPM version
 - Clone this repository
 - Run `npm install`
 - Run `npm run prepare` (this installs Husky so we have commit hooks, see 'build output' below)
